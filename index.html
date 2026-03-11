@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Rafael Loucas | Luxury Aesthetics</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0A0A0A;
+            --bg-lighter: #121212;
+            --gold-primary: #D4B075;
+            --gold-muted: #9a8054;
+            --text-light: #F5F1EA;
+            --text-gray: #888888;
+            --glass-bg: rgba(20, 20, 20, 0.6);
+            --glass-border: rgba(212, 176, 117, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- RESPONSIVE GRID LAYOUT --- */
+        .master-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* Mobile Default */
+            min-height: 100vh;
+        }
+
+        @media (min-width: 1024px) {
+            .master-container {
+                grid-template-columns: 1.2fr 1fr;
+                /* Desktop Split Screen */
+            }
+        }
+
+        /* --- LEFT SIDE: HERO / PROFILE (Sticky on Desktop) --- */
+        .hero-section {
+            position: relative;
+            /* Placeholder Background: Replace with your AI generated aesthetic image */
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.7)),
+                url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1600&auto=format&fit=crop') center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        @media (min-width: 1024px) {
+            .hero-section {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                border-bottom: none;
+                border-right: 1px solid var(--glass-border);
+                padding: 40px;
+            }
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold-primary);
+            padding: 5px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 40px rgba(212, 176, 117, 0.2);
+            background: var(--bg-dark);
+        }
+
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .main-title {
+            font-size: clamp(12px, 1.5vw, 14px);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .sub-title {
+            font-size: 11px;
+            color: var(--text-gray);
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .credentials-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 25px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .cred-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            color: var(--gold-primary);
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .cred-desc {
+            font-size: 11px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .cred-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+
+        .cred-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* --- RIGHT SIDE: LINKS & ACTIONS (Scrollable) --- */
+        .links-section {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--bg-dark);
+            background-image: radial-gradient(circle at top right, rgba(212, 176, 117, 0.05) 0%, transparent 40%);
+        }
+
+        @media (min-width: 1024px) {
+            .links-section {
+                padding: 80px 10%;
+                justify-content: center;
+            }
+        }
+
+        .links-wrapper {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            text-align: left;
+            width: 100%;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 8px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 25px;
+            background: var(--bg-lighter);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover Sweep Animation */
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(212, 176, 117, 0.1), transparent);
+            transform: skewX(-20deg);
+            transition: 0.5s;
+        }
+
+        .link-btn:hover::before {
+            left: 150%;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 176, 117, 0.2);
+            background: #1a1a1a;
+        }
+
+        .btn-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .btn-title {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-subtitle {
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+
+        .btn-icon {
+            color: var(--gold-primary);
+            font-size: 20px;
+        }
+
+        /* Highlighted WhatsApp Button */
+        .btn-primary {
+            background: linear-gradient(135deg, #181818 0%, #0a0a0a 100%);
+            border: 1px solid var(--gold-muted);
+        }
+
+        .btn-primary .btn-title {
+            color: var(--gold-primary);
+        }
+
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-muted);
+            font-size: 18px;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="master-container">
+
+        <div class="hero-section">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=400&auto=format&fit=crop"
+                alt="Dr. Rafael Loucas" class="profile-img">
+
+            <h1>Dr. Rafael Loucas</h1>
+            <p class="main-title">Consultant of Plastic & Aesthetic Surgery</p>
+            <p class="sub-title">Facharzt für Plastische und Ästhetische Chirurgie<br>Fellow of EBOPRAS</p>
+
+            <div class="credentials-box">
+                <div class="cred-item">
+                    <p class="cred-title">Medical Director</p>
+                    <p class="cred-desc">AUMAR Longevity Aesthetics | Zurich, Switzerland</p>
+                </div>
+                <div class="cred-item">
+                    <p class="cred-title">KOL & International Trainer</p>
+                    <p class="cred-desc">Merz Aesthetics | IPSN Faculty Board</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="links-section">
+            <div class="links-wrapper">
+
+                <a href="#" class="link-btn btn-primary">
+                    <div class="btn-content">
+                        <span class="btn-title">Book Appointment</span>
+                        <span class="btn-subtitle">Direct WhatsApp Consultation</span>
+                    </div>
+                    <i class="fab fa-whatsapp btn-icon" style="color:#25D366;"></i>
+                </a>
+
+                <h3 class="section-heading">Official Profiles</h3>
+
+                <a href="#" class="link-btn">
+                    <div class="btn-content">
+                        <span class="btn-title">AUMAR Longevity Aesthetics</span>
+                        <span class="btn-subtitle">Clinic Website</span>
+                    </div>
+                    <i class="fas fa-globe btn-icon"></i>
+                </a>
+
+                <a href="#" class="link-btn">
+                    <div class="btn-content">
+                        <span class="btn-title">Twinplastics Doctors</span>
+                        <span class="btn-subtitle">@twinplastics_doctors</span>
+                    </div>
+                    <i class="fab fa-instagram btn-icon"></i>
+                </a>
+
+                <a href="#" class="link-btn">
+                    <div class="btn-content">
+                        <span class="btn-title">Dr. Rafael Loucas</span>
+                        <span class="btn-subtitle">@drrafaelloucas</span>
+                    </div>
+                    <i class="fab fa-instagram btn-icon"></i>
+                </a>
+
+                <h3 class="section-heading">Academic & Press</h3>
+
+                <a href="#" class="link-btn">
+                    <div class="btn-content">
+                        <span class="btn-title">ResearchGate</span>
+                        <span class="btn-subtitle">Scientific Publications & Advances</span>
+                    </div>
+                    <i class="fas fa-microscope btn-icon"></i>
+                </a>
+
+                <a href="#" class="link-btn">
+                    <div class="btn-content">
+                        <span class="btn-title">Media & Press</span>
+                        <span class="btn-subtitle">International Interviews & Features</span>
+                    </div>
+                    <i class="far fa-newspaper btn-icon"></i>
+                </a>
+
+                <div class="footer">
+                    <p class="footer-logo">AUMAR</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
