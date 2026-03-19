@@ -157,12 +157,16 @@
                         <span class="text-sm text-textGray mt-1 tracking-wider">ResearchGate Profile</span>
                     </a>
 
-                    <a href="https://www.instagram.com/ramiabuzeid_/reel/DDFmFuSx3AP/"
+                    <a href="#" onclick="openModal()"
                         class="group flex flex-col items-center justify-center py-4 px-6 rounded-xl border border-gold/30 bg-[#0F0F0F] transition-all duration-300 hover:border-gold hover:bg-[#151515]">
+
                         <span
-                            class="text-lg lg:text-xl text-textLight font-serif tracking-wide group-hover:text-gold transition-colors">International
-                            Interviews</span>
-                        <span class="text-sm text-textGray mt-1 tracking-wider">Featured Conversations</span>
+                            class="text-lg lg:text-xl text-textLight font-serif tracking-wide group-hover:text-gold transition-colors">
+                            International Interviews
+                        </span>
+                        <span class="text-sm text-textGray mt-1 tracking-wider">
+                            Featured Conversations
+                        </span>
                     </a>
 
                     <a href="#"
@@ -184,6 +188,63 @@
         </div>
 
     </div>
+
+    <!-- Modal Background -->
+    <div id="customModal"
+        class="fixed inset-0 bg-black/70 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-50">
+
+        <div class="bg-[#0F0F0F] border border-gold/30 rounded-2xl p-4 w-[90%] max-w-sm">
+
+            <!-- Title -->
+            <h3 class="text-center text-textLight font-serif mb-4">
+                Select Interview
+            </h3>
+
+            <!-- Links List -->
+            <div class="flex flex-col divide-y divide-gray-800">
+
+                <a href="https://www.instagram.com/ramiabuzeid_/reel/DDFmFuSx3AP/" target="_blank"
+                    class="py-3 text-center text-textLight hover:text-gold transition">
+                    Hybrid Fillers and its magical effects!
+                </a>
+
+                <a href="https://www.instagram.com/reel/DDkSGyQNVYr/?igsh=dmN2MzB4d2N2MHYy" target="_blank"
+                    class="py-3 text-center text-textLight hover:text-gold transition">
+                    Where can we inject bio simulators
+                </a>
+
+                <a href="https://www.instagram.com/reel/DDU52EVNNVi/?igsh=MWk0ZDJmZWt0ODVuYQ==" target="_blank"
+                    class="py-3 text-center text-textLight hover:text-gold transition">
+                    Is bio simulators safe?
+                </a>
+
+                <a href="https://www.instagram.com/reel/DDSO6X2IDet/?igsh=MXJha3RjY3pkYXdnMw==" target="_blank"
+                    class="py-3 text-center text-textLight hover:text-gold transition">
+                    difference between hybrid fillers and nano fat injections
+                </a>
+
+            </div>
+
+            <!-- Close -->
+            <button onclick="closeModal()"
+                class="mt-4 w-full py-2 text-sm border border-gray-700 rounded-lg text-gray-300 hover:bg-gray-800 transition">
+                Close
+            </button>
+
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('customModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('customModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+    </script>
 
 </body>
 
